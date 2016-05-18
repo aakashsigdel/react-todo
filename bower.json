@@ -1,0 +1,21 @@
+{
+  "name": "todo",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "pravinbashyal <pravin.bashyal@gmail.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "^15.0.2"
+  }
+}
