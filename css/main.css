@@ -10,3 +10,7 @@
 .no-padding {
   padding: 0px !important;
 }
+
+.strike {
+  text-decoration: line-through;
+}
