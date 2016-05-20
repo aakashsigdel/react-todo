@@ -20,12 +20,13 @@ class App extends React.Component {
   addItems (item) {
     item = item || {};
     var items = this.state.items;
-    item.id = items.length;
+    item.id = items.length === 0 ? 0 : items[items.length-1].id + 1;
     item.archived = false;
     items.push(item);
     this.setState({
       items: items
     });
+    console.log('items', this.state.items);
   }
 
   toggleCheck (item) {
@@ -41,6 +42,17 @@ class App extends React.Component {
     })
   }
 
+  deleteItem (item) {
+    console.log('delete item', item);
+    let items = this.state.items;
+    let itemsNew = _.remove (items, function (o) {
+      return o.id === item.id;
+    });
+    this.setState({
+      items: items
+    });
+  }
+
   render () {
     return (
       <div className="app">
@@ -51,7 +63,7 @@ class App extends React.Component {
           <AddItem addItems={this.addItems.bind(this)}/>
         </div>
         <div class="row">
-          <Table items={this.state.items} toggleCheck={this.toggleCheck.bind(this)}/>
+          <Table items={this.state.items} toggleCheck={this.toggleCheck.bind(this)} deleteItem={this.deleteItem.bind(this)}/>
         </div>
       </div>
     )

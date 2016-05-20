@@ -6,6 +6,11 @@ export default class Todo extends React.Component {
     this.props.toggleCheck(i);
   }
 
+  handleDelete (i) {
+    console.log('stop man handling me', i);
+    this.props.deleteItem(i);
+  };
+
   render () {
     return (
     <tr className="">
@@ -22,7 +27,7 @@ export default class Todo extends React.Component {
         {this.props.item.time}
        </td>
        <td>
-         <button class="button-primary" onClick="">delete</button>
+         <button class="button-primary" onClick={this.handleDelete.bind(this, this.props.item)}>delete</button>
        </td>
     </tr>
     );
