@@ -17,12 +17,13 @@
     "gulp-babel": "^6.1.2",
     "gulp-load-plugins": "^1.2.2",
     "gulp-webpack": "^1.5.0",
-    "webpack": "^1.13.0",
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
     "lodash": "^4.12.0",
     "path": "^0.12.7",
+    "react": "^15.0.2",
+    "react-dom": "^15.0.2",
     "webpack": "^1.13.0"
   }
 }
