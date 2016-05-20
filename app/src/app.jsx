@@ -5,6 +5,7 @@ import ReactDOM from "react-dom";
 import FilteredList from "./filteredList/index.jsx";
 import AddItem from "./addItem/index.jsx";
 import Table from "./table/index.jsx";
+import _ from "../../node_modules/lodash";
 
 class App extends React.Component {
 
@@ -17,13 +18,27 @@ class App extends React.Component {
   }
 
   addItems (item) {
+    item = item || {};
     var items = this.state.items;
+    item.id = items.length;
     item.archived = false;
     items.push(item);
     this.setState({
       items: items
     });
-    console.log('state', this.state);
+  }
+
+  toggleCheck (item) {
+    console.log('items toggle', this.state.items)
+    let items = this.state.items;
+    item.archived=!item.archived;
+    let index = _.findIndex (items, function (o) {
+      return o.id === item.id;
+    });
+    items[index] = item;
+    this.setState({
+      items: items
+    })
   }
 
   render () {
@@ -36,7 +51,7 @@ class App extends React.Component {
           <AddItem addItems={this.addItems.bind(this)}/>
         </div>
         <div class="row">
-          <Table items={this.state.items}/>
+          <Table items={this.state.items} toggleCheck={this.toggleCheck.bind(this)}/>
         </div>
       </div>
     )
