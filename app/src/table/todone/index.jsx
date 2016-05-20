@@ -2,14 +2,16 @@
 import React from "react";
 
 export default class Todone extends React.Component {
-  handleCheck (e) {
+  handleCheck (i) {
+    console.log('clicked', i);
+    this.props.toggleCheck(i);
   }
 
   render () {
     return (
     <tr className="strike">
        <td>
-         <input type="checkbox" checked="true"/>
+         <input type="checkbox" checked="true" onClick={this.handleCheck.bind(this, this.props.item)}/>
        </td>
        <td>
         {this.props.item.title}
